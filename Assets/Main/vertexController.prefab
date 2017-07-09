@@ -22,8 +22,7 @@ GameObject:
   - component: {fileID: 33268429095549688}
   - component: {fileID: 135421361748932550}
   - component: {fileID: 23782213322259984}
-  - component: {fileID: 114990448899292714}
-  - component: {fileID: 114094036480716380}
+  - component: {fileID: 114110784773025930}
   m_Layer: 0
   m_Name: vertexController
   m_TagString: Untagged
@@ -83,37 +82,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1510838096327086}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114094036480716380
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1510838096327086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114990448899292714}
-          m_MethodName: OnPointerClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
---- !u!114 &114990448899292714
+--- !u!114 &114110784773025930
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -124,6 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f602606b627cb2449711820796111d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeMat: {fileID: 2100000, guid: b1947e1520a88314da1ca869cf8d8b59, type: 2}
+  inActiveMat: {fileID: 2100000, guid: 4708bee683c59a54dbc708696821fda4, type: 2}
 --- !u!135 &135421361748932550
 SphereCollider:
   m_ObjectHideFlags: 1

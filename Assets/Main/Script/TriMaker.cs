@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VR;
+using DaydreamElements.SwipeMenu;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 
@@ -21,6 +22,7 @@ public class TriMaker : MonoBehaviour
     private Vector3 offset;
     float delta = 4f;
     private Vector3 rot;
+    private ActionSwipe action;
 
     // Use this for initialization
     void Start()
@@ -30,8 +32,9 @@ public class TriMaker : MonoBehaviour
         initialTris = new int[36];
         lasttouchPos = new Vector2(0, 0);
         delta = 4f;
+        action = GameObject.Find("ActionSwipe").GetComponent<ActionSwipe>();
         makeCube();
-        transform.position = new Vector3(0, -2f, 4f);
+        transform.position = new Vector3(0, 0, 4f);
         transform.localRotation = Quaternion.Euler(0, 45, 0);
     }
 
@@ -39,7 +42,6 @@ public class TriMaker : MonoBehaviour
     void Update()
     {
         getHandleChange();
-        //applyTouchZoom();
         //transform.Rotate(Camera.main.transform.localRotation.eulerAngles, Space.Self);
         //transform.localRotation = Camera.main.transform.localRotation;
     }
@@ -50,21 +52,6 @@ public class TriMaker : MonoBehaviour
             rot = new Vector3(0,0,0);
         
         transform.Rotate(rot, Space.Self);
-    }
-
-    private void applyTouchZoom()
-    {
-        if (GvrController.TouchDown)
-            lasttouchPos = GvrController.TouchPos;
-        if (GvrController.IsTouching)
-        {
-            deltaTouch = GvrController.TouchPos - lasttouchPos;
-            delta += deltaTouch.y * zoomSpeed;
-            lasttouchPos = GvrController.TouchPos;
-            delta = Mathf.Clamp(delta, 2.5f, 5);
-        }
-        offset = Camera.main.transform.forward * delta;
-        transform.position = Camera.main.transform.position + offset;
     }
 
     private void getHandleChange()
